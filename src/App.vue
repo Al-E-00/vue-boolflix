@@ -33,7 +33,7 @@ export default {
       },
       movieSearch(reserch){
         this.searchMovie = reserch;
-        console.log(reserch)
+        console.log(this.searchMovie)
       }
     },
     }

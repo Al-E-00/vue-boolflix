@@ -12,11 +12,13 @@
 export default {
     data() {
         return {
+            inputSearch: "",
         }
     },
     methods: {
         atSearchClick() {
             this.$emit("search", this.inputSearch);
+            this.inputSearch = "";
         }
 
     }
