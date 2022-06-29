@@ -2,6 +2,7 @@
     <div>
         <ul>
             <li>
+                <img :src="'https://image.tmdb.org/t/p/' + 'w200' + serie.poster_path" alt=""> <br />
                 Title: {{serie.name}} <br />
                 Original title: {{serie.original_name}} <br />
                 Language: {{serie.original_language}} <span class="fi" :class="'fi-' + getLanguage"></span> <br />

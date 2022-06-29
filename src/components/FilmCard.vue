@@ -2,6 +2,7 @@
     <div>
         <ul>
             <li>
+                <img :src="'https://image.tmdb.org/t/p/' + 'w200' + cardMovie.poster_path" alt=""> <br />
                 Title: {{ cardMovie.title }} <br />
                 Original title: {{ cardMovie.original_title }} <br />
                 Language: {{ cardMovie.original_language }} <span class="fi" :class="'fi-' + getLanguage" />
