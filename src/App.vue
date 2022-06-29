@@ -40,12 +40,12 @@ export default {
         .catch(error => {
           console.log(error);
         });
-
-      // so this function is invoked, every time the search button is clicked inside the header, I could do the Api call here
     },
   }
 }
 </script>
 
-<style>
+<style  lang="scss">
+@import "./assets/scss/main";
+
 </style>
