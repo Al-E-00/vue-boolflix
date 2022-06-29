@@ -1,15 +1,13 @@
 <template>
     <div>
         <ul>
-            <li v-for="(movie, i) in cardMovies" :key="i">
-                Title: {{ movie.title }} <br />
-                Original title:  {{ movie.original_title }} <br /> 
-                Language: {{ movie.original_language }} <span class="fi" :class='"fi-" + countryFlag'></span> <br /> 
-                Vote: {{ movie.vote_average }} <br />
-                
+            <li>
+                Title: {{ cardMovies.title }} <br />
+                Original title:  {{ cardMovies.original_title }} <br /> 
+                Language: {{ cardMovies.original_language }} <br /> 
+                Vote: {{ cardMovies.vote_average }} <br />
             </li>
         </ul>
-
     </div>
 </template>
 
@@ -19,15 +17,10 @@ export default {
     name: "MovieCard",
     props: {
         cardMovies: {
-            type: Array,
+            type: Object,
             required: true,
         },
     },
-    computed: {
-        countryFlag() {
-            return this.cardMovies.original_language
-        }
-    }
 
 }
 </script>
