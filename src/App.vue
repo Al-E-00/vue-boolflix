@@ -1,19 +1,19 @@
 <template>
   <div>
     <Header @search="onSearch" />
-    <Main :moviesList="moviesList" :seriesList="seriesList"/>
+    <FilmsList :moviesList="moviesList"/>
   </div>
 </template>
 
 <script>
 import Header from "./components/TheHeader.vue";
-import Main from "./components/TheMain.vue";
+import FilmsList from "./components/FilmsList.vue";
 import axios from "axios";
 
 
 export default {
   components: {
-    Header, Main
+    Header, FilmsList
   },
   data() {
     return {
