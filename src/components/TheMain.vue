@@ -1,20 +1,25 @@
 <template>
     <div>
-        <MovieCard v-for="(card, i) in moviesList" :key="i" :cardMovies="card"/>
+        <Card v-for="(card, i) in moviesList" :key="i" :cardMovies="card"/>
+        <Card v-for="(card, i) in seriesList" :key="i" :cardSeries="card" />
     </div>
 </template>
 
 <script>
-import MovieCard from "./MovieCard.vue";
+import Card from "./ResultCard.vue";
 
 export default {
     components: {
-        MovieCard
+        Card
     },
     props: {
+        seriesList: {
+            type: Array,
+            required: true
+        },
         moviesList: {
             type: Array,
-            required: true,
+            required: true
         },
     }
 }
