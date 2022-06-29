@@ -6,7 +6,7 @@
                 Title: {{serie.name}} <br />
                 Original title: {{serie.original_name}} <br />
                 Language: {{serie.original_language}} <span class="fi" :class="'fi-' + getLanguage"></span> <br />
-                Vote: {{serie.vote_average}} <br />
+                Vote: {{voteConverted}} <br />
             </li>
         </ul>
     </div>
@@ -31,6 +31,11 @@ export default {
                 return langMap[this.serie.original_language]
             }
             return this.cardMovie.original_language;
+        },
+        voteConverted() {
+            let number = this.serie.vote_average / 2;
+            let convertedNumber = parseInt(number);
+            return convertedNumber;
         }
     }
 
