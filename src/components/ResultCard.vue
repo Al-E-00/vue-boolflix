@@ -28,11 +28,9 @@ export default {
     props: {
         cardMovies: {
             type: Object,
-            required: true,
         },
         cardSeries: {
             type: Object,
-            required: true
         }
     },
     computed: {

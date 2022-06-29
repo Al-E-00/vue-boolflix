@@ -1,7 +1,7 @@
 <template>
     <div>
-        <Card v-for="(card, i) in moviesList" :key="i" :cardMovies="card"/>
-        <Card v-for="(card, i) in seriesList" :key="i" :cardSeries="card" />
+        <Card v-for="(card, i) in moviesList" :key="'movies' + i" :cardMovies="card"/>
+        <Card v-for="(card, i) in seriesList" :key="'series' + i" :cardSeries="card" />
     </div>
 </template>
 
@@ -15,11 +15,9 @@ export default {
     props: {
         seriesList: {
             type: Array,
-            required: true
         },
         moviesList: {
             type: Array,
-            required: true
         },
     }
 }
