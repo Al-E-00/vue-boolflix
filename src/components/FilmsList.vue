@@ -1,15 +1,15 @@
 <template>
     <div>
-        <FilmsCard v-for="(movie, i) in moviesList" :key="i" :cardMovie="movie" />
+        <FilmCard v-for="(movie, i) in moviesList" :key="i" :cardMovie="movie" />
     </div>
 </template>
 
 <script>
-import FilmsCard from "./FilmsCard.vue";
+import FilmCard from "./FilmCard.vue";
 
 export default {
     components: {
-    FilmsCard
+    FilmCard
     },
     props: {
         moviesList: {
