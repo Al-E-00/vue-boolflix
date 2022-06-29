@@ -1,8 +1,16 @@
 <template>
   <div>
     <Header @search="onSearch" />
-    <FilmsList :moviesList="moviesList"/>
-    <SeriesList :seriesList="seriesList"/>
+    <div class="row">
+      <div class="col">
+        <h1>Movies</h1>
+        <FilmsList :moviesList="moviesList"/>
+      </div>
+      <div class="col">
+        <h1>Tv series</h1>
+        <SeriesList :seriesList="seriesList"/>
+      </div>
+    </div>
   </div>
 </template>
 
