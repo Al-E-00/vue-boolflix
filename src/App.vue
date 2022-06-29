@@ -1,14 +1,14 @@
 <template>
   <div>
-    <Header @search="movieSearch"/>
-    <Main />
+    <Header @search="onSearch" />
+    <Main :moviesList="moviesList" />
   </div>
 </template>
 
 <script>
 import Header from "./components/TheHeader.vue";
 import Main from "./components/TheMain.vue";
-import Axios from "axios"
+import axios from "axios";
 
 
 export default {
@@ -17,28 +17,35 @@ export default {
   },
   data() {
     return {
-      searchMovie: "",
+      searchText: "",
+      moviesList: []
     }
   },
   methods: {
-    fetchMoviesList() {
-      Axios.
-      get("https://api.themoviedb.org/3/search/movie", {
-        params: {
-          api_key: "a7eb26f7fc5bb3a9457748bc3071c557",
-          query: this.searchMovie,
-          language: "it-IT"
-        }
-      });
-      },
-      movieSearch(reserch){
-        this.searchMovie = reserch;
-        console.log(this.searchMovie)
-      }
+    onSearch(nameMovie) {
+      this.searchText = nameMovie;
+
+      axios
+        .get('https://api.themoviedb.org/3/search/movie',
+          {
+            params: {
+              api_key: 'a7eb26f7fc5bb3a9457748bc3071c557',
+              query: this.searchText,
+              language: 'it-IT'
+            }
+          })
+        .then((resp) => {
+          this.moviesList = resp.data.results;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+
+      // so this function is invoked, every time the search button is clicked inside the header, I could do the Api call here
     },
-    }
+  }
+}
 </script>
 
 <style>
-
 </style>
