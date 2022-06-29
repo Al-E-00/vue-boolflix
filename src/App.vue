@@ -22,8 +22,8 @@ export default {
     }
   },
   methods: {
-    onSearch(nameMovie) {
-      this.searchText = nameMovie;
+    onSearch(searchedItem) {
+      this.searchText = searchedItem;
 
       axios
         .get('https://api.themoviedb.org/3/search/movie',
