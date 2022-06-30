@@ -39,7 +39,7 @@ export default {
             let url = 'https://image.tmdb.org/t/p/';
             let imgSize = 'w200';
             let poster_path = this.cardMovie.poster_path;
-            let replaced_path = '../public/imgError.png';
+            let replaced_path = '/imgError.png';
 
             if (poster_path === null) {
                 return replaced_path;
