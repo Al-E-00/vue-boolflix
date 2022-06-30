@@ -1,7 +1,7 @@
 <template>
     <div>
         <span v-for="i in 5" :key="i">
-            <i v-if="i <= voteConverted" class="fa-regular fa-star"></i>
+            <i v-if="i <= voteConverted" class="fa-solid fa-star text-warning"></i>
             <i v-else class="fa-regular fa-star"></i>
         </span>
     </div>
