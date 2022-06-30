@@ -71,6 +71,7 @@ export default {
     width: 100%;
 }
 .film-style{
+    
     flex-grow: 1;
     display: flex;
     justify-content: space-evenly;
