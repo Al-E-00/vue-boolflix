@@ -1,14 +1,11 @@
 <template>
     <div>
-        <ul>
-            <li>
-                <img :src="posterPath"> <br />
-                Title: {{serie.name}} <br />
-                Original title: {{serie.original_name}} <br />
-                Language: {{serie.original_language}} <span class="fi" :class="'fi-' + getLanguage"></span> <br />
-                Vote: <MovieRating :vote="serie.vote_average"></MovieRating><br />
-            </li>
-        </ul>
+        <img :src="posterPath"> <br />
+        Title: {{ serie.name }} <br />
+        Original title: {{ serie.original_name }} <br />
+        Language: {{ serie.original_language }} <span class="fi" :class="'fi-' + getLanguage"></span> <br />
+        Vote: <MovieRating :vote="serie.vote_average"></MovieRating><br />
+
     </div>
 </template>
 
@@ -36,7 +33,7 @@ export default {
         },
         posterPath() {
             let url = 'https://image.tmdb.org/t/p/';
-            let imgSize = 'w200';
+            let imgSize = 'w342';
             let poster_path = this.serie.poster_path;
             let replaced_path = '/imgError.png';
 
@@ -45,11 +42,10 @@ export default {
             } else {
                 return url + imgSize + poster_path;
             }
-    },
-}
+        },
+    }
 };
 </script>
 
 <style>
-
 </style>

@@ -1,16 +1,8 @@
 <template>
     <div>
         <Header @search="onSearch" />
-        <div class="row">
-            <div class="col">
-                <h1>Movies</h1>
-                <FilmsList :moviesList="moviesList" />
-            </div>
-            <div class="col">
-                <h1>Tv series</h1>
-                <SeriesList :seriesList="seriesList" />
-            </div>
-        </div>
+        <FilmsList class="film-style" :moviesList="moviesList" />
+        <SeriesList :seriesList="seriesList" />
     </div>
 
 </template>
@@ -73,4 +65,12 @@ export default {
 </script>
 
 <style>
+.film-style{
+    display: flex;
+    align-content: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 1.5em;
+    gap: 1em;
+}
 </style>

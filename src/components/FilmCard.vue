@@ -1,43 +1,32 @@
 <template>
     <div>
-        <ul>
-            <li>
-                <img :src="posterPath" alt=""> <br />
-                Title: {{ cardMovie.title }} <br />
-                Original title: {{ cardMovie.original_title }} <br />
-                Language: {{ cardMovie.original_language }} <span class="fi" :class="'fi-' + getLanguage" />
-                <br />
-                Vote: <MovieRating :vote="cardMovie.vote_average"></MovieRating> <br />
-            </li>
-        </ul>
+        <div class="cover-component" @mouseover="active = true" @mouseleave="active = false">
+            <img :src="posterPath" alt="">
+            <HoverOnFilm v-show="active" class="movie-information" :cardMovie="cardMovie"></HoverOnFilm>
+        </div>
     </div>
 </template>
 
 <script>
-import MovieRating from './MovieRating.vue';
+import HoverOnFilm from './HoverOnFilm.vue';
 
 export default {
-    components: { MovieRating },
+    components: { HoverOnFilm },
     name: "MovieCard",
     props: {
         cardMovie: {
             type: Object,
         },
     },
+    data() {
+        return {
+            active: false,
+        }
+    },
     computed: {
-        getLanguage() {
-            const langsMap = {
-                "en": "us",
-                "ja": "jp"
-            };
-            if (langsMap[this.cardMovie.original_language]) {
-                return langsMap[this.cardMovie.original_language];
-            }
-            return this.cardMovie.original_language;
-        },
         posterPath() {
             let url = 'https://image.tmdb.org/t/p/';
-            let imgSize = 'w200';
+            let imgSize = 'w300';
             let poster_path = this.cardMovie.poster_path;
             let replaced_path = '/imgError.png';
 
@@ -46,11 +35,24 @@ export default {
             } else {
                 return url + imgSize + poster_path;
             }
-
         },
+
     },
 };
 </script>
 
-<style>
+<style lang="scss">
+.cover-component {
+    position: relative;
+    border: 2px solid black;
+    
+    .movie-information {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.667);
+    }
+}
 </style>
