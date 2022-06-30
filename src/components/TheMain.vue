@@ -1,7 +1,9 @@
 <template>
     <div>
         <Header @search="onSearch" />
-        <FilmsList class="film-style" :moviesList="moviesList" />
+        <div class="custom-width">
+            <FilmsList class="film-style" :moviesList="moviesList" />
+        </div>
         <SeriesList :seriesList="seriesList" />
     </div>
 
@@ -65,11 +67,14 @@ export default {
 </script>
 
 <style>
+.custom-width {
+    width: 100%;
+}
 .film-style{
+    flex-grow: 1;
     display: flex;
-    align-content: center;
     justify-content: space-evenly;
-    flex-wrap: wrap;
+    overflow: auto;
     padding: 1.5em;
     gap: 1em;
 }
