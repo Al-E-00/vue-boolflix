@@ -6,14 +6,16 @@
                 Title: {{serie.name}} <br />
                 Original title: {{serie.original_name}} <br />
                 Language: {{serie.original_language}} <span class="fi" :class="'fi-' + getLanguage"></span> <br />
-                Vote: {{voteConverted}} <br />
+                Vote: <MovieRating :vote="serie.vote_average"></MovieRating><br />
             </li>
         </ul>
     </div>
 </template>
 
 <script>
+import MovieRating from './MovieRating.vue';
 export default {
+    components: { MovieRating },
     name: "SerieCard",
     props: {
         serie: {
@@ -24,21 +26,15 @@ export default {
     computed: {
         getLanguage() {
             const langMap = {
-                "en" : "us",
+                "en": "us",
                 "ja": "jp"
             };
-            if(langMap[this.serie.original_language]) {
-                return langMap[this.serie.original_language]
+            if (langMap[this.serie.original_language]) {
+                return langMap[this.serie.original_language];
             }
             return this.cardMovie.original_language;
-        },
-        voteConverted() {
-            let number = this.serie.vote_average / 2;
-            let convertedNumber = parseInt(number);
-            return convertedNumber;
         }
-    }
-
+    },
 }
 </script>
 
