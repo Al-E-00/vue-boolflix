@@ -2,7 +2,7 @@
     <div>
         <ul>
             <li>
-                <img :src="'https://image.tmdb.org/t/p/' + 'w200' + serie.poster_path" alt=""> <br />
+                <img :src="posterPath"> <br />
                 Title: {{serie.name}} <br />
                 Original title: {{serie.original_name}} <br />
                 Language: {{serie.original_language}} <span class="fi" :class="'fi-' + getLanguage"></span> <br />
@@ -33,9 +33,21 @@ export default {
                 return langMap[this.serie.original_language];
             }
             return this.cardMovie.original_language;
-        }
+        },
+        posterPath() {
+            let url = 'https://image.tmdb.org/t/p/';
+            let imgSize = 'w200';
+            let poster_path = this.serie.poster_path;
+            let replaced_path = '../public/imgError.png';
+
+            if (poster_path === null) {
+                return replaced_path;
+            } else {
+                return url + imgSize + poster_path;
+            }
     },
 }
+};
 </script>
 
 <style>
