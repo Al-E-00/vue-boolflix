@@ -45,6 +45,14 @@ export default {
 .cover-component {
     position: relative;
     border: 2px solid black;
+    width: 300px;
+    height: 450px;
+
+
+    img{
+        width: 100%;
+        height: 100%;
+    }
     
     .movie-information {
         position: absolute;
@@ -52,7 +60,9 @@ export default {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.667);
+        backdrop-filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.314);
+
     }
 }
 </style>

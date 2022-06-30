@@ -1,18 +1,17 @@
 <template>
     <div>
-        <img :src="posterPath"> <br />
-        Title: {{ serie.name }} <br />
-        Original title: {{ serie.original_name }} <br />
-        Language: {{ serie.original_language }} <span class="fi" :class="'fi-' + getLanguage"></span> <br />
-        Vote: <MovieRating :vote="serie.vote_average"></MovieRating><br />
-
+        <div class="cover-component" @mouseover="active = true" @mouseleave="active = false">
+            <img :src="posterPath"> <br />
+            <HoverOnSeries v-show="active" class="serie-information" :serie="serie"/>
+        </div>
     </div>
 </template>
 
 <script>
-import MovieRating from './MovieRating.vue';
+import HoverOnSeries from './HoverOnSeries.vue';
+
 export default {
-    components: { MovieRating },
+    components: { HoverOnSeries },
     name: "SerieCard",
     props: {
         serie: {
@@ -20,20 +19,15 @@ export default {
             requested: true
         }
     },
+    data(){
+        return {
+            active: false,
+        }
+    },
     computed: {
-        getLanguage() {
-            const langMap = {
-                "en": "us",
-                "ja": "jp"
-            };
-            if (langMap[this.serie.original_language]) {
-                return langMap[this.serie.original_language];
-            }
-            return this.cardMovie.original_language;
-        },
         posterPath() {
             let url = 'https://image.tmdb.org/t/p/';
-            let imgSize = 'w342';
+            let imgSize = 'w300';
             let poster_path = this.serie.poster_path;
             let replaced_path = '/imgError.png';
 
@@ -47,5 +41,26 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.cover-component {
+    position: relative;
+    border: 2px solid black;
+    width: 300px;
+    height: 450px;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .serie-information {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        backdrop-filter: blur(10px);
+        background-color: rgba(0, 0, 0, 0.314);
+    }
+}
 </style>

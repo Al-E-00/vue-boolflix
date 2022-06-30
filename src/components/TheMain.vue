@@ -1,10 +1,10 @@
 <template>
-    <div>
+    <div class="main-background" :class="click ? 'view-100':'vh-100'">
         <Header @search="onSearch" />
-        <div class="custom-width">
+        <div class="slider">
             <FilmsList class="horizontal-scroll-style" :moviesList="moviesList" />
         </div>
-        <div class="custom-width">
+        <div class="slider">
             <SeriesList class="horizontal-scroll-style" :seriesList="seriesList" />
         </div>
     </div>
@@ -26,11 +26,13 @@ export default {
             searchText: "",
             moviesList: [],
             seriesList: [],
+            click: false,
         }
     },
     methods: {
         onSearch(searchedItem) {
             this.searchText = searchedItem;
+            this.click = true;
 
             axios
                 .get('https://api.themoviedb.org/3/search/movie',
@@ -66,18 +68,30 @@ export default {
         },
     },
 }
-</script>
+</script >
 
 <style>
-.custom-width {
-    width: 100%;
+.view-100{
+    height: 100%;
 }
+.main-background {
+    background-color: rgb(20, 20, 20);
+
+
+}
+.slider {
+    max-width: 100%;
+    display: flex;
+}
+
 .horizontal-scroll-style {
+    flex-shrink: 0;
     flex-grow: 1;
     display: flex;
     justify-content: space-evenly;
     overflow: auto;
     padding: 1.5em;
     gap: 1em;
+    max-width: 100%;
 }
 </style>
