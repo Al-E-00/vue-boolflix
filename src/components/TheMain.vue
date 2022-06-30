@@ -2,9 +2,11 @@
     <div>
         <Header @search="onSearch" />
         <div class="custom-width">
-            <FilmsList class="film-style" :moviesList="moviesList" />
+            <FilmsList class="horizontal-scroll-style" :moviesList="moviesList" />
         </div>
-        <SeriesList :seriesList="seriesList" />
+        <div class="custom-width">
+            <SeriesList class="horizontal-scroll-style" :seriesList="seriesList" />
+        </div>
     </div>
 
 </template>
@@ -70,8 +72,7 @@ export default {
 .custom-width {
     width: 100%;
 }
-.film-style{
-    
+.horizontal-scroll-style {
     flex-grow: 1;
     display: flex;
     justify-content: space-evenly;
