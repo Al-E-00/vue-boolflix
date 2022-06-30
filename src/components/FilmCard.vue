@@ -2,7 +2,7 @@
     <div>
         <div class="cover-component" @mouseover="active = true" @mouseleave="active = false">
             <img :src="posterPath" alt="">
-            <HoverOnFilm v-show="active" class="movie-information" :cardMovie="cardMovie"></HoverOnFilm>
+            <HoverOnFilm v-if="active" class="movie-information" :cardMovie="cardMovie"></HoverOnFilm>
         </div>
     </div>
 </template>

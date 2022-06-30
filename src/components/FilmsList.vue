@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="d-flex">
         <FilmCard v-for="(movie, i) in moviesList" :key="i" :cardMovie="movie" />
     </div>
 </template>

@@ -39,7 +39,7 @@ export default {
         width: 300px;
         height: 40px;
         align-self: center;
-        margin-left: 52em;
+        margin-left: 58rem;
     }
     }
 </style>

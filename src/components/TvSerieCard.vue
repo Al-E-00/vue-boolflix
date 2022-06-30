@@ -2,7 +2,7 @@
     <div>
         <div class="cover-component" @mouseover="active = true" @mouseleave="active = false">
             <img :src="posterPath"> <br />
-            <HoverOnSeries v-show="active" class="serie-information" :serie="serie"/>
+            <HoverOnSeries v-if="active" class="serie-information" :serie="serie"/>
         </div>
     </div>
 </template>
